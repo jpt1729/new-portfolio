@@ -1,0 +1,40 @@
+---
+import HeroImage from "../../images/hero.jpg";
+import { getImage } from "astro:assets";
+
+import Corners from "../icons/Corners.astro";
+import EyeIcon from "../icons/Eye.astro";
+import MapIcon from "../icons/Map.astro";
+
+import Tags from "./Tags";
+
+const optimizedBackground = await getImage({ src: HeroImage, format: "webp" });
+---
+
+<div
+  class="max-w-80 w-full aspect-[0.55] relative bg-cover rounded-xl"
+  style={`background-image: url(${optimizedBackground.src});`}
+>
+  <div
+    class="absolute bg-off-white text-base p-4 rounded-br-xl w-[22ch] top-0 left-0"
+  >
+    <p>Fermentum torquent nullam eleifend euismod accumsan.</p>
+    <Corners class="absolute -right-3 top-0" />
+    <Corners class="absolute -bottom-3 left-0" />
+  </div>
+  <div class="absolute left-0 bottom-0 bg-off-white rounded-tr-xl p-3 aspect-square w-12">
+    <button class="">
+      <EyeIcon />
+    </button>
+    <Corners class="absolute -right-3 bottom-0 -rotate-90" />
+    <Corners class="absolute -top-3 left-0 -rotate-90" />
+  </div>
+  <div
+    class="absolute right-0 bottom-0 bg-off-white py-[10px] px-3 subpixel-antialiased flex gap-3 rounded-tl-xl"
+  >
+    <MapIcon />
+    <p>Boston, MA</p>
+    <Corners class="absolute -left-3 bottom-0 rotate-180" />
+    <Corners class="absolute -top-3 right-0 rotate-180" />
+  </div>
+</div>
