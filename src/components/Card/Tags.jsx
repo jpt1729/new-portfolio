@@ -47,7 +47,7 @@ const Corners = ({ ...props }) => {
       fill="none"
       {...props}
     >
-      <g clip-path="url(#clip0_9_28)">
+      <g clipPath="url(#clip0_9_28)">
         <path d="M12 0H0V12C0 5.3724 5.3724 0 12 0Z" fill="#FDFDFD"></path>
       </g>
       <defs>
@@ -60,7 +60,7 @@ const Corners = ({ ...props }) => {
 };
 
 const animation = {
-  transition: { duration: 0.45, type: "tween", ease: "linear" },
+  transition: { duration: 0.35, type: "tween", ease: "linear" },
 };
 
 export default function Tags({}) {
@@ -79,7 +79,7 @@ export default function Tags({}) {
                   y: 0,
                 }
           }
-          transition={{...animation.transition, duration: animation.transition.duration * 2}}
+          transition={{...animation.transition, duration: animation.transition.duration}}
         >
           <p>Fermentum torquent nullam eleifend euismod accumsan.</p>
           <Corners className="absolute -bottom-3 left-0" />
@@ -99,8 +99,8 @@ export default function Tags({}) {
           }
           transition={{
             ...animation.transition,
-            duration: animation.transition.duration * 2 * 24/104,
-            delay: animation.transition.duration * 2 * 80/104,
+            duration: animation.transition.duration * 24/104,
+            delay: animation.transition.duration * 80/104,
           }}
         >
           <Corners className="absolute -right-3 top-0" />
