@@ -3,11 +3,12 @@ import HeroImage from "../images/hero.jpg";
 import { getImage } from "astro:assets";
 
 import Corners from "./icons/Corners.astro";
-import EyeIcon from "./icons/Eye.astro"
-import MapIcon from "./icons/Map.astro"
+import EyeIcon from "./icons/Eye.astro";
+import MapIcon from "./icons/Map.astro";
 
 const optimizedBackground = await getImage({ src: HeroImage, format: "webp" });
 ---
+
 <div
   class="max-w-80 w-full aspect-[0.55] relative bg-cover rounded-xl"
   style={`background-image: url(${optimizedBackground.src});`}

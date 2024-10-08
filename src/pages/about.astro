@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ToolTip from "../components/Tooltip";
+---
+
+<Layout title="John Tan-Aristy">
+  <main class="max-w-screen-xl m-auto text-base">
+    <h1 class="text-9xl text-light-accent border-b-8 border-light-accent w-fit">
+      {"> ABOUT"}
+    </h1>
+    <div class="p-3">
+      <h2 class="font-bold text-2xl">A little bit about me</h2>
+      <p>
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Luctus sagittis
+        accumsan varius massa magnis. Enim erat feugiat ridiculus nisi eros.
+        Purus sociosqu per pharetra ridiculus id et massa aliquet quam. Est
+        auctor maximus sagittis ornare potenti. Inceptos vestibulum consectetur
+        lectus donec maximus adipiscing. Commodo elit accumsan natoque commodo
+        bibendum. Et amet tempus, vulputate nostra sagittis rutrum est.
+        Scelerisque dolor consequat a ipsum fames est leo.
+      </p>
+    </div>
+    <div>
+      <h2 class="font-bold text-2xl">John’s Favorite Languages</h2>
+      <div class="">
+        <div class="w-fit">
+          <h3 class="text-light-accent underline">Languages</h3>
+          <ul>
+            <li class="w-fit">
+              {"> JavaScript"}
+            </li>
+            <li class="w-fit">
+              {"> Python"}
+            </li>
+            <li class="w-fit">
+              {"> HTML/CSS"}
+            </li>
+          </ul>
+        </div>
+        <div class="w-fit">
+          <h3 class="text-[#00208F] underline">Frameworks</h3>
+          <!-- TODO: Add to tailwind config -->
+          <ul>
+            <ToolTip tooltip={"My go to framework!"} client:load>
+              <li class="w-fit">
+                {"> React.js"}
+              </li>
+            </ToolTip>
+            <li class="w-fit">
+              {"> React Native"}
+            </li>
+            <li class="w-fit">
+              {"> Next.js"}
+            </li>
+            <ToolTip tooltip={"What this website is made in!"} client:load>
+              <li class="w-fit">
+                {"> Astro"}
+              </li>
+            </ToolTip>
+            <li class="w-fit mt-4">
+              {"> Pandas"}
+            </li>
+            <li class="w-fit">
+              {"> Numpy"}
+            </li>
+            <li class="w-fit">
+              {"> Matplotlib"}
+            </li>
+            <ToolTip tooltip={"My graphs!"} client:load>
+              <li class="w-fit">
+                {"> Seaborn"}
+              </li>
+            </ToolTip>
+          </ul>
+        </div>
+        <div class="w-fit">
+          <h3 class="text-[#C6A862] underline">Tools</h3>
+          <!-- TODO: Add to tailwind config -->
+          <ul>
+            <ToolTip tooltip={"I <3 Figma"} client:load>
+              <li class="w-fit">
+                {"> Figma"}
+              </li>
+            </ToolTip>
+            <li class="w-fit">
+              {"> KiCad"}
+            </li>
+            <ToolTip tooltip={"Literally what I am using rn"} client:load>
+              <li class="w-fit">
+                {"> VSCode"}
+              </li>
+            </ToolTip>
+            <li class="w-fit">
+              {"> Git"}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

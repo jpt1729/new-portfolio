@@ -46,7 +46,7 @@ function MenuItem({ name, href, select, child, ...props }) {
   HOME
 </motion.li>
 */
-export default function Navbar({}) {
+export default function Navbar({ pathname }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -104,35 +104,30 @@ export default function Navbar({}) {
               >
                 <div class="w-full h-14"></div>
                 <div className="flex max-w-screen-xl m-auto justify-between">
-                  <ol className="m-auto max-w-screen-xl w-full font-medium md:text-8xl text-5xl">
-                    <MenuItem
-                      name="HOME"
-                      href="/"
-                      select={true}
-                      child={0}
-                    />
+                  <ol className="m-auto max-w-screen-xl w-full font-medium md:text-8xl text-6xl">
+                    <MenuItem name="HOME" href="/" select={pathname === '/'} child={0} />
                     <MenuItem
                       name="ABOUT"
                       href="/about"
-                      select={false}
+                      select={pathname === '/about'}
                       child={1}
                     />
                     <MenuItem
                       name="MY WORK"
                       href="/work"
-                      select={false}
+                      select={pathname === '/work'}
                       child={2}
                     />
                     <MenuItem
                       name="BLOG"
                       href="/blog"
-                      select={false}
+                      select={pathname === '/blog'}
                       child={3}
                     />
                     <MenuItem
                       name="CONTACT"
                       href="/contact"
-                      select={false}
+                      select={pathname === '/contact'}
                       child={4}
                     />
                   </ol>
@@ -142,38 +137,40 @@ export default function Navbar({}) {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 + 5 * 0.15, duration: 0.35 }}
-                > 
-                <div>
-                  <p>
-                    Made with {`<3`} by John. Website code available at{" "}
-                    <a
-                      className="underline lg:inline-block hidden"
-                      href="https://github.com/jpt1729/new-portfolio"
-                      target="_blank"
-                    >
-                      https://github.com/jpt1729/new-portfolio
-                    </a>
-                    <a
-                      className="underline lg:hidden inline-block"
-                      href="https://github.com/jpt1729/new-portfolio"
-                      target="_blank"
-                    >
-                      my GitHub
-                    </a>
-                  </p>
+                >
+                  <div>
+                    <p>
+                      Made with {`<3`} by John. Website code available at{" "}
+                      <a
+                        className="underline lg:inline-block hidden"
+                        href="https://github.com/jpt1729/new-portfolio"
+                        target="_blank"
+                      >
+                        https://github.com/jpt1729/new-portfolio
+                      </a>
+                      <a
+                        className="underline lg:hidden inline-block"
+                        href="https://github.com/jpt1729/new-portfolio"
+                        target="_blank"
+                      >
+                        my GitHub
+                      </a>
+                    </p>
 
-                  <p className="lg:block hidden">
-                    Follow me on{" "}
-                    <a
-                      className="underline"
-                      href="https://www.linkedin.com/in/john-tan-aristy/"
-                    >
-                      LinkedIn!
-                    </a>
-                  </p>
+                    <p className="lg:block hidden">
+                      Follow me on{" "}
+                      <a
+                        className="underline"
+                        href="https://www.linkedin.com/in/john-tan-aristy/"
+                      >
+                        LinkedIn!
+                      </a>
+                    </p>
                   </div>
                   <div>
-                    <span>{`(c)`} John Tan-Aristy, {new Date().getFullYear()}</span>
+                    <span>
+                      {`(c)`} John Tan-Aristy, {new Date().getFullYear()}
+                    </span>
                   </div>
                 </motion.footer>
               </motion.menu>
