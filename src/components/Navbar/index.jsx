@@ -167,6 +167,37 @@ export default function Navbar({ pathname, gitHash = "dev" }) {
                     </span>
                   </div>
                 </motion.footer>
+                <motion.div
+                  className="max-w-screen-xl m-auto text-center mt-3"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 + 5 * 0.15, duration: 0.35 }}
+                >
+                  <a
+                    className="underline"
+                    href="https://cyb3r17.github.io/Cybernetics-Webring/?nav=prev&from=johntanaristy.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {"←"}
+                  </a>{" "}
+                  <a
+                    className="underline"
+                    href="https://cyb3r17.github.io/Cybernetics-Webring/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CYBERNETICS WEBRING
+                  </a>{" "}
+                  <a
+                    className="underline"
+                    href="https://cyb3r17.github.io/Cybernetics-Webring/?nav=next&from=johntanaristy.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {"→"}
+                  </a>
+                </motion.div>
               </motion.menu>
             </>
           )}

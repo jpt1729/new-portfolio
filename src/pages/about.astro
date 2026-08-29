@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ToolTip from "../components/Tooltip";
-import SocialFollow from "../components/SocialFollow";
+import SocialRow from "../components/SocialRow.astro";
 import DropDown from "../components/DropDown";
 ---
 
@@ -13,11 +13,9 @@ import DropDown from "../components/DropDown";
       {"> ABOUT"}
     </h1>
 
-    <div
-      class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] lg:grid-rows-[auto_1fr] gap-8 items-start"
-    >
-      <!-- Left col, row 1: Bio + Social -->
-      <div class="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8 items-start">
+      <!-- Left col: Bio + Social -->
+      <div class="flex flex-col gap-6">
         <div>
           <h2 class="font-bold text-2xl mb-2">A little bit about me</h2>
           <p>
@@ -35,39 +33,34 @@ import DropDown from "../components/DropDown";
             LiPo battery support, and <ToolTip tooltip={"just spamming hdlbits 💔"} client:load><span>learning Verilog</span></ToolTip>.
           </p>
         </div>
+
+        <SocialRow />
       </div>
 
-      <!-- Right col, spans both rows: Work Experience -->
-      <div class="lg:col-start-2 lg:row-start-1 lg:row-span-2">
-        <div class="max-w-sm mb-6">
-          <SocialFollow client:load />
-        </div>
-        <h2 class="font-bold text-2xl mb-2">Some of my experiences</h2>
+      <!-- Right col: Experiences + Tools -->
+      <div class="flex flex-col gap-10">
         <div>
+          <h2 class="font-bold text-2xl mb-2">Some of my experiences</h2>
+          <div>
           <DropDown title="Engineering Intern - Bureau of Reclamation" client:load>
             <p>
               Working with the Enterprise Information Management Group on the
-              bureau's asset management systems. Optimizing SQL Server schemas,
-              building data dashboards for Western US regional offices, and
-              independently developing the Land Use Authorization System, a
-              Next.js and FastAPI app that automates SF-299 form tracking and
-              approval workflows.
+              bureau's asset management systems — optimizing SQL Server
+              schemas, building data dashboards for Western US regional
+              offices, and independently developing the Land Use Authorization
+              System, a Next.js and FastAPI app that automates SF-299 form
+              tracking and multi-stage approval workflows.
             </p>
           </DropDown>
-          <DropDown title="Developer Fellow - Longhorn Developers" client:load>
+          <DropDown title="Developer Fellow - Longhorn Studies" client:load>
             <p>
-              Currently working on Longhorn Developers, a student run
-              development organization at UT Austin (Hook 'em Horns 🤘), studies
-              app (<a
+              Building Longhorn Studies (<a
                 href="https://github.com/Longhorn-Developers/Longhorn-Studies"
                 >github.com/Longhorn-Developers/Longhorn-Studies</a
-              >).
-            </p>
-            <br />
-            <p>
-              Throughout this project, I've been working on the development team
-              in collaboration with designers and product managers to build the
-              goals of the people.
+              >), a mobile study app for UT Austin students, within Longhorn
+              Developers — a student-run open source dev org at UT Austin
+              (Hook 'em Horns 🤘). Working across the full stack in close
+              collaboration with our design team and product managers.
             </p>
             <div class="flex gap-2 mt-1">
               <img
@@ -88,79 +81,73 @@ import DropDown from "../components/DropDown";
           </DropDown>
           <DropDown title="Hackathons" client:load>
             <p>
-              Competed in a bunch of hackathons across the country most recently
-              YHack at Yale, HackClub's Undercity at GitHub HQ, HackClub's
-              Apocalypse at Shopify Toronto, and HackMIT's Blueprint.
-            </p>
-            <br />
-            <p>
-              Each one was a different problem, a different team, and a
-              different excuse to build something fast and figure out the
-              details later. Met a lot of wonderful people, learned a whole lot,
-              and won a couple on the way!
+              Competed in hackathons across the country, most recently YHack at
+              Yale and HackClub's Undercity at GitHub HQ. Each one's a
+              different problem, a different team, and a different excuse to
+              build something fast and figure out the details later.
             </p>
           </DropDown>
         </div>
-        <ToolTip tooltip={"Redirect to my works page."} client:load>
-          <a
-            href="/work"
-            class="inline-block mt-4 px-5 text-sm opacity-50 hover:opacity-100 hover:underline decoration-light-accent decoration-2 transition-opacity"
-          >
-            {"> see all my work"}
-          </a>
-        </ToolTip>
-      </div>
+          <ToolTip tooltip={"Redirect to my works page."} client:load>
+            <a
+              href="/work"
+              class="inline-block mt-4 px-5 text-sm opacity-50 hover:opacity-100 hover:underline decoration-light-accent decoration-2 transition-opacity"
+            >
+              {"> see all my work"}
+            </a>
+          </ToolTip>
+        </div>
 
-      <!-- Left col, row 2: Tools -->
-      <div class="lg:col-start-1 lg:row-start-2">
-        <h2 class="font-bold text-2xl mb-2">My tools</h2>
-        <div class="flex gap-12">
-          <div class="w-fit">
-            <h3 class="text-[#00208F] underline">Frameworks</h3>
-            <ul>
-              <ToolTip tooltip={"My go to framework!"} client:load>
-                <li class="w-fit">{"> React.js"}</li>
-              </ToolTip>
-              <li class="w-fit">{"> React Native"}</li>
-              <li class="w-fit">{"> Next.js"}</li>
-              <ToolTip tooltip={"What this website is made in!"} client:load>
-                <li class="w-fit">{"> Astro"}</li>
-              </ToolTip>
-              <li class="w-fit">{"> Pandas"}</li>
-              <li class="w-fit">{"> Numpy"}</li>
-              <li class="w-fit">{"> Tensorflow"}</li>
-              <li class="w-fit">{"> Matplotlib"}</li>
-              <ToolTip tooltip={"My graphs!"} client:load>
-                <li class="w-fit">{"> Seaborn"}</li>
-              </ToolTip>
-            </ul>
-          </div>
-          <div class="flex flex-col gap-6">
+        <div>
+          <h2 class="font-bold text-2xl mb-2">My tools</h2>
+          <div class="flex gap-12">
             <div class="w-fit">
-              <h3 class="text-light-accent underline">Languages</h3>
+              <h3 class="text-[#00208F] underline">Frameworks</h3>
               <ul>
-                <li class="w-fit">{"> JavaScript"}</li>
-                <li class="w-fit">{"> Python"}</li>
-                <li class="w-fit">{"> HTML/CSS"}</li>
+                <ToolTip tooltip={"My go to framework!"} client:load>
+                  <li class="w-fit">{"> React.js"}</li>
+                </ToolTip>
+                <li class="w-fit">{"> React Native"}</li>
+                <li class="w-fit">{"> Next.js"}</li>
+                <ToolTip tooltip={"What this website is made in!"} client:load>
+                  <li class="w-fit">{"> Astro"}</li>
+                </ToolTip>
+                <li class="w-fit">{"> Pandas"}</li>
+                <li class="w-fit">{"> Numpy"}</li>
+                <li class="w-fit">{"> Tensorflow"}</li>
+                <li class="w-fit">{"> Matplotlib"}</li>
+                <ToolTip tooltip={"My graphs!"} client:load>
+                  <li class="w-fit">{"> Seaborn"}</li>
+                </ToolTip>
               </ul>
             </div>
-            <div class="w-fit">
-              <h3 class="text-[#C6A862] underline">Tools</h3>
-              <ul>
-                <ToolTip tooltip={"I <3 Figma"} client:load>
-                  <li class="w-fit">{"> Figma"}</li>
-                </ToolTip>
-                <li class="w-fit">{"> KiCad"}</li>
-                <ToolTip tooltip={"Tragically :("} client:load>
-                  <li class="w-fit">{"> LTSpice"}</li>
-                </ToolTip>
-                <ToolTip tooltip={"Literally what I am using rn"} client:load>
-                  <li class="w-fit">{"> VSCode"}</li>
-                </ToolTip>
-                <li class="w-fit">{"> Git"}</li>
-                <li class="w-fit">{"> GitHub Actions"}</li>
-                <li class="w-fit">{"> Azure DevOps"}</li>
-              </ul>
+            <div class="flex flex-col gap-6">
+              <div class="w-fit">
+                <h3 class="text-light-accent underline">Languages</h3>
+                <ul>
+                  <li class="w-fit">{"> JavaScript"}</li>
+                  <li class="w-fit">{"> Python"}</li>
+                  <li class="w-fit">{"> HTML/CSS"}</li>
+                </ul>
+              </div>
+              <div class="w-fit">
+                <h3 class="text-[#C6A862] underline">Tools</h3>
+                <ul>
+                  <ToolTip tooltip={"I <3 Figma"} client:load>
+                    <li class="w-fit">{"> Figma"}</li>
+                  </ToolTip>
+                  <li class="w-fit">{"> KiCad"}</li>
+                  <ToolTip tooltip={"Tragically :("} client:load>
+                    <li class="w-fit">{"> LTSpice"}</li>
+                  </ToolTip>
+                  <ToolTip tooltip={"Literally what I am using rn"} client:load>
+                    <li class="w-fit">{"> VSCode"}</li>
+                  </ToolTip>
+                  <li class="w-fit">{"> Git"}</li>
+                  <li class="w-fit">{"> GitHub Actions"}</li>
+                  <li class="w-fit">{"> Azure DevOps"}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
